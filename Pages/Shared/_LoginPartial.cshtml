@@ -1,0 +1,42 @@
+@using Microsoft.AspNetCore.Identity
+@using FilmFabriken.Areas.Identity.Pages.Account
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <form method="post" asp-area="Identity" class="form-inline" asp-route-returnUrl="/Index" asp-page="/Account/Logout">
+        <span>Inloggad som <strong>@User.Identity.Name</strong></span>
+        <button class="ml-2 btn-link btn" type="submit">Logga ut</button>
+    </form>
+}
+else
+{
+    <a asp-area="Identity" asp-page="/Account/Login"><u>Logga in</u></a>
+}
+<!--
+<ul class="navbar-nav">
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Inloggad som @User.Identity.Name!</a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new {area = ""})" method="post">
+                <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+            </form>
+        </li>
+    }
+else
+{
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register">Register</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login">Login</a>
+</li>
+}
+</ul>
+-->

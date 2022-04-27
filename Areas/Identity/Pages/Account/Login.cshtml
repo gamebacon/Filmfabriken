@@ -1,0 +1,176 @@
+@page
+@model LoginModel
+
+
+<style>
+    .row {
+        background-color: coral;
+        border-radius: 10px;
+        box-shadow: 0px 0px 22px grey;
+    }
+    img {
+        padding: 5%;
+        width: 70%;
+        margin-left: 15%;
+    }
+  
+    form {
+        width:  100%;
+    }
+    
+    a {
+        text-decoration: underline;
+    }
+    
+    .btn1, input {
+        width: 100%;
+    }
+    
+    .secText {
+        text-align: center;
+    }
+    
+    .btn1:hover {
+        background: coral;
+    }
+    
+    .form-check-input {
+        margin-top: .45rem;
+        margin-left: .8rem;
+    }
+    
+   .right_side {
+    background-color: lightseagreen;
+    border-bottom-right-radius: inherit; 
+    border-top-right-radius: inherit;
+   }
+   
+   
+</style>
+
+<section>
+    <div class="container my-lg-5">
+        <div class="row" >
+            <div class="col-6">
+                <!-- Vrf finns den ? -->
+                <img src="~/images/bear.png" alt="bear"/>
+            </div>
+            <div class="col-lg-6 px-5 pt-5 right_side">
+                <h1 class="font-weight-bold py-3">Logga in</h1>
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <form method="post">
+                    <div class="form-row">
+                        <div class="col-lg-8">
+                            <span asp-validation-for="Input.UserName" class="text-danger"></span>
+                            <input asp-for="Input.UserName" type="text" placeholder="Användarnamn eller Email" class="my-2 p-1"/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-8">
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                            <input asp-for="Input.Password" type="password" placeholder="Lösenord" class="my-2 p-1"/>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-lg-7">
+                            <input class="form-check-input" asp-for="Input.RememberMe" type="checkbox" />
+                            <label class="form-check-label" asp-for="Input.RememberMe"></label>
+                        </div>
+                    </div>
+                    <div class="form-row p-0">
+                        <div class="col-8 py-3">
+                            <button type="submit" class="btn btn1 btn-primary">Login</button>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-8">
+                            <p class="secText text-white">Inget konto? <a href="Register">Registrera här</a></p>
+                        </div>
+                    </div>
+                        
+                </form>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--
+<div class="row">
+    <div class="col-md-4">
+        <section>
+            <form id="account" method="post">
+                <h4>Use a local account to log in.</h4>
+                <hr/>
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="Input.Email"></label>
+                    <input asp-for="Input.Email" class="form-control"/>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Input.Password"></label>
+                    <input asp-for="Input.Password" class="form-control"/>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="Input.RememberMe">
+                            <input asp-for="Input.RememberMe"/>
+                            @Html.DisplayNameFor(m => m.Input.RememberMe)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Log in</button>
+                </div>
+                <div class="form-group">
+                    <p>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </p>
+                    <p>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                    </p>
+                    <p>
+                        <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
+                    </p>
+                </div>
+            </form>
+        </section>
+    </div>
+    <div class="col-md-6 col-md-offset-2">
+        <section>
+            <h4>Use another service to log in.</h4>
+            <hr />
+            @{
+                if ((Model.ExternalLogins?.Count ?? 0) == 0)
+                {
+                    <div>
+                        <p>
+                            There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>
+                            for details on setting up this ASP.NET application to support logging in via external services.
+                        </p>
+                    </div>
+                }
+                else
+                {
+                    <form id="external-account" asp-page="./ExternalLogin" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="form-horizontal">
+                        <div>
+                            <p>
+                                @foreach (var provider in Model.ExternalLogins)
+                                {
+                                    <button type="submit" class="btn btn-primary" name="provider" value="@provider.Name" title="Log in using your @provider.DisplayName account">@provider.DisplayName</button>
+                                }
+                            </p>
+                        </div>
+                    </form>
+                }
+            }
+        </section>
+    </div>
+</div>
+-->
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
