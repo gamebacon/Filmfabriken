@@ -26,15 +26,8 @@ using FilmFabriken;
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 3 "C:\Users\willi\prylar\code2\c#\razorpages\FilmFabriken\Pages\_ViewImports.cshtml"
-using FilmFabriken.Data;
-
-#line default
-#line hidden
-#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"101e29c025b7c28de6c86dbd7d29a3dfadd7316b", @"/Pages/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"70ac81a09bdcae2c7dc40357aeeb254e8648c8c1", @"/Pages/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a2efb2a63536cca589fb855ee276c0fc3e48af26", @"/Pages/_ViewImports.cshtml")]
     public class Pages__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

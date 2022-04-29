@@ -1,9 +1,57 @@
 ﻿@page
+@using FilmFabriken.Model.User
 @model FilmFabriken.Pages.Admin
 
 
-<div class="text-center">
-    <h1 class="font-weight-bolder text-capitalize">This is the Admin page!</h1>
-    <hr/>
-    <p class="font-weight-lighter">Makes people talk.</p>
+
+
+<div class="container row p-0 m-0">
+    <div class="col-10">
+        <h2 class="text-info">Hantera användare</h2>
+    </div>
+    
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if (Model.Users.Any())
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Users.FirstOrDefault().FirstName"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Users.FirstOrDefault().LastName"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Users.FirstOrDefault().UserName"></label>
+                        </th>
+                        <th>
+                        </th>
+                    </tr> 
+                    @foreach (User user in Model.Users)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(m=>user.FirstName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m=>user.LastName)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(m=>user.UserName)
+                            </td>
+                            <td>
+                                <button asp-page-handler="Delete" asp-route-id="@user.Id" onclick="return confirm('Säker?')" class="btn btn-danger btn-sm">Radera</button>
+                                <!--<a asp-page="Edit" asp-route-id="@user.Id" class="btn btn-success btn-sm text-white">Edit</a>-->
+                            </td>
+                        </tr>
+                    }
+                </table> 
+            }
+            else
+            {
+                <p>No books in store.</p>
+            }
+        </form>
+    </div>
 </div>

@@ -1,0 +1,52 @@
+﻿@page
+@model FilmFabriken.Pages.Movies.Lists.Create
+
+
+
+<div class="container bg-secondary list-container">
+    <div class="">
+        <h1>Skapa film lista</h1>
+        <form class="list-form row" method="post">
+            <div class="col bg-secondary">
+                <div class="p-3">
+                    <label asp-for="Input.Name"></label>
+                    <span class="text-danger" asp-validation-for="Input.Name"></span>
+                    <br/>
+                    <input class="field" asp-for="Input.Name" type="text"/>
+                </div>
+                <div class="p-3">
+                    <label asp-for="Input.Description"></label>
+                    <span class="text-danger" asp-validation-for="Input.Description"></span>
+                    <br/>
+                    <textarea class="field" asp-for="Input.Description"></textarea>
+                </div>
+                
+                
+                <!--
+                <div class="p-3">
+                    <label>
+                        Sök film
+                        <br/>
+                        <input id="movie-list-search" class="p-1" placeholder="Sök efter film">
+                    </label>
+                    <br/>
+                    <ui id="movie-list-search-parent">
+                    </ui>
+                </div>
+                -->
+                <div class="p-3">
+                    <button class="btn btn-primary" type="submit">Skapa</button>
+                    <button class="btn btn-danger"><a href="/index">Avbryt</a></button>
+                </div>
+                
+            </div>
+        <!--
+        <div class="col">
+            <ul class="bg-warning" id="movie-list-finish">
+            </ul>
+        </div>
+        -->
+            
+        </form>
+    </div>
+</div>

@@ -1,21 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using FilmFabriken.Model;
-using FilmFabriken.Model.User;
+﻿using FilmFabriken.Model.MovieStuff;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace FilmFabriken.Data
+namespace FilmFabriken.Model
 {
     public class ApplicationDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-            : base(options)
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
+            
         }
 
-        public DbSet<User> User { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            builder.Entity<Movie>()
+                .HasOne(m => m.MovieList)
+                .WithMany(ml => ml.Movies)
+                .HasForeignKey(m => m.MovieListId);
+            
+            base.OnModelCreating(builder);
+        }
+
+
+        public DbSet<User.User> User { get; set; }
+        public DbSet<MovieList> MovieList { get; set; }
+        public DbSet<Movie> Movie { get; set; }
+        
     }
 }

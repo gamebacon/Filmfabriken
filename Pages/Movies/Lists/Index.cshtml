@@ -1,0 +1,85 @@
+﻿@page
+@using FilmFabriken.Model.MovieStuff
+@using FilmFabriken.wwwroot.cs
+@model FilmFabriken.Pages.Movies.Lists.Index
+
+
+
+<div class="container row p-0 m-0">
+    <div class="col-10">
+        <h2 class="text-info">Mina listor</h2>
+    </div>
+    <div class="col-2">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Skapa ny lista</a> 
+    </div>
+    
+    <div class="col-12 border p-3 mt-3 bg-secondary">
+        <form method="post">
+            @if (Model.MovieLists.Any())
+            {
+                <div class="row font-weight-bold">
+                    <div class="col-3">
+                        <label asp-for="MovieLists.FirstOrDefault().Name"></label>
+                    </div>
+                    <div class="col-3">
+                        <label asp-for="MovieLists.FirstOrDefault().Description"></label>
+                    </div>
+                    <div class="col-6 row">
+                        <div class="col d-flex">
+                            <div>
+                                <label>Visa filmer efter</label>
+                                <br/>
+                                <select name="sortBy">
+                                    <option name="sortBy" value="0">Betyg</option>
+                                    <option name="sortBy" value="1">Titel</option>
+                                </select>
+                            </div>
+                            <div class="col pt-lg-3">
+                                <button type="submit" class="btn btn-primary">Sortera</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @foreach (MovieList movieList in Model.MovieLists)
+                {
+                <div class="bg-light p-3 m-2 rounded bg-primary">
+                    <div class="row bg-primary p-3 m-0">
+                        <div class="col-4">
+                            @Html.DisplayFor(m => movieList.Name)
+                        </div>
+                        <div class="col-3">
+                            @Html.DisplayFor(m => movieList.Description)
+                        </div>
+                        <div class="col-3 m-1">
+                            <button  asp-page-handler="Delete" asp-route-id="@movieList.Id" onclick="return confirm('Är du säker på att du vill ta bort listan \'@movieList.Name\' ?')" class="btn btn-danger btn-sm">Radera</button>
+                            <a asp-page="Edit" asp-route-id="@movieList.Id" class="btn btn-success btn-sm text-white">Redigera</a>
+                        </div>
+                    </div>
+                    <div class="movie-index-parent">
+                        @foreach(Movie movie in movieList.Movies)
+                        {
+                            <div class="movie-index-item mx-lg-2">
+                                <a href="/movies/moviedetails/?movie_id=@movie.MovieId">
+                                    <div>
+                                        <img style="width: 150px" src=@Util.GetImageURL(movie.ImgPath)>
+                                    </div>
+                                    <div class="movie-index-item-overview">
+                                        <div class="">
+                                            <span class="font-weight-bold"> @movie.Rating</span>
+                                            <span class="font-weight-lighter"> @movie.Title</span>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        }
+                    </div>
+                </div>
+                }
+            }
+            else
+            {
+                <p>Du har inga listor.</p>
+            }
+        </form>
+    </div>
+</div>

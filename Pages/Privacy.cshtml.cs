@@ -9,7 +9,6 @@ using Microsoft.Extensions.Logging;
 
 namespace FilmFabriken.Pages
 {
-    [Authorize]
     public class PrivacyModel : PageModel
     {
         private readonly ILogger<PrivacyModel> _logger;

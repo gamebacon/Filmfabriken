@@ -1,0 +1,27 @@
+﻿@page
+@model FilmFabriken.Pages.Movies.MovieDetails
+
+
+<div class="container">
+    <div class="inspect-container">
+        <div class="inspect-top-section ">
+            <div class="inspect-poster-wrapper">
+                <img class="inspect-poster" src=@Model.Input.ImgPath alt="@Model.Input.Title">
+            </div>
+            <div class="inspect-details">
+                <div class="">
+                    <span class="p-3 h2 inspect-heading font-weight-bolder">@Model.Input.Title</span>
+                    <span class="p-3 h4 inspect-rating">@Model.Input.Rating</span>
+                    <span class="p-3 h4 font-weight-bold">(@Model.Input.ReleaseDate)</span>
+                </div>
+                <div class="inspect-overview p-lg-4">
+                    <span class="font-weight-bold">@Model.Input.Overview</span>
+                </div>
+            </div>
+        </div>
+        <div class="inspect-bottom-section bg-light">
+            <form method="post">
+            </form>
+        </div>
+    </div>
+</div>

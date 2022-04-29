@@ -21,12 +21,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="wwwroot\images" />
+      <Compile Include="wwwroot\cs\Role.cs" />
+      <Compile Include="wwwroot\cs\Util.cs" />
     </ItemGroup>
 
     <ItemGroup>
-      <Compile Include="wwwroot\cs\Role.cs" />
-      <Compile Include="wwwroot\cs\Util.cs" />
+      <_ContentIncludedByDefault Remove="Pages\Admin\Users.cshtml" />
     </ItemGroup>
 
 </Project>

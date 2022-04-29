@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
-using FilmFabriken.Data;
 using FilmFabriken.Model;
 using FilmFabriken.Model.User;
 using FilmFabriken.wwwroot.cs;
@@ -17,6 +16,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Logging;
 
 namespace FilmFabriken.Areas.Identity.Pages.Account
@@ -71,11 +71,12 @@ namespace FilmFabriken.Areas.Identity.Pages.Account
             public string UserName { get; set; }
             
             [EmailAddress]
+            [Required(ErrorMessage = "Obligatoriskt fält")]
             [DataType(DataType.EmailAddress)]
-            [Display(Name = "Email")]
+            [Display(Name = "Email *")]
             public string Email { get; set; }
             
-            [Display(Name = "Kön")]
+            [Display(Name = "Kön *")]
             public Gender Gender { get; set; }
             
             [Required(ErrorMessage = "Obligatoriskt fält")]
@@ -93,6 +94,9 @@ namespace FilmFabriken.Areas.Identity.Pages.Account
             [Required(ErrorMessage = "Obligatoriskt fält")]
             [Display(Name = "Ögenfärg *")]
             public ConsoleColor eyeColor { get; set; }
+
+            [Display(Name = "Admin")]
+            public bool IsAdmin { get; set; }
             
             public override string ToString()
             {
@@ -155,8 +159,10 @@ namespace FilmFabriken.Areas.Identity.Pages.Account
                         if (!await _roleManager.RoleExistsAsync(role.ToString()))
                             await _roleManager.CreateAsync(new IdentityRole(role.ToString()));
                     }
-
-                    await _userManager.AddToRoleAsync(user, Util.Role.Default.ToString());
+                    
+                    await _userManager.AddToRoleAsync(user,
+                        Input.IsAdmin ? Util.Role.Admin.ToString() : Util.Role.Default.ToString()
+                        );
                     
                     _logger.LogInformation("User created a new account with password.");
 
@@ -192,6 +198,8 @@ namespace FilmFabriken.Areas.Identity.Pages.Account
                         errorMsg = "Användarnamnet är upptaget.";
                     if (error.Code.Equals("DuplicateEmail"))
                         errorMsg = "Denna e-post är upptagen.";
+                    if (error.Code.Equals("PasswordTooShort"))
+                        errorMsg = "Lösenordet är för kort.";
                     
                     //Console.WriteLine($">{error.Code}< >{error.Description}<");
                     

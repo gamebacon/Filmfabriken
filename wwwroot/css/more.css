@@ -1,0 +1,170 @@
+﻿
+.index-back {
+    /*
+    background-image: url('../images/movie.jpg');
+    background-repeat: no-repeat;
+     */
+}
+
+.home-poster {
+    width: 250px;
+}
+.home-item {
+    /*
+    
+    flex-grow: 5;
+     */
+}
+
+#home-p {
+    display: flex;"
+    flex-basis: 100%;
+    flex-wrap: wrap-reverse;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    height: 600px;
+    width: 1400px;
+}
+
+.list-container {
+    border-radius: 5px;
+    padding: 10px 100px;
+}
+
+.list-form {
+    border-radius: 5px;
+    background-color: #ccc597;
+    padding: 30px 50px;
+    align-items: center;
+}
+
+.label-extra {
+    font-size: medium;
+<!--text-transform: uppercase;-->
+}
+
+.input-extra {
+    border: rgba(-1, 0, 0, .4);
+    border-style: none none solid none;
+    background: none;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+.movie-list-search-item {
+    display: inline;
+    padding: 10px;
+    background-color: #dcbe04;
+    word-break: break-all;
+    width: 136px;
+}
+#movie-list-search-parent {
+    display: flex;
+    list-style-type: none;
+    background-color: white;
+    height: 250px;
+    width: 430px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.movie-add-item {
+
+}
+
+
+
+
+.movie-edit-parent {
+    overflow-x: auto;
+    display: flex;
+    list-style-type: none;
+    height: 481px;
+    flex-wrap: wrap;
+}
+.movie-edit-list-img {
+    width: 100px;
+}
+.movie-edit-current {
+    height: 600px;
+    overflow-y: scroll;
+} 
+
+.smol-img {
+    width: 50px;
+}
+
+
+
+.movie-index-parent {
+    overflow-x: auto;
+    display: flex;
+    padding: 15px;
+    background-color: inherit;
+    height: 350px;
+    overflow-y: hidden;
+}
+
+.movie-index-item {
+    height: 100%;
+    background: #ea2f9b;
+    padding: 10px;
+}
+
+.movie-index-item:hover {
+    opacity: .5;
+}
+
+.movie-index-item-overview {
+    background: #af9e9e;
+    padding: 8px;
+    height: 55px;
+    width: 150px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+.inspect-container {
+    height: 600px;
+    background: #117a8b;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+.inspect-poster {
+    height: 418px;
+}
+
+.inspect-bottom-section {
+    height: 120px;
+}
+
+.inspect-top-section {
+    display: flex;
+    background-color: #979998;
+}
+.inspect-details {
+    padding: 28px;
+}
+
+.inspect-heading {
+    font-size: 35px;
+    font-weight: bold;
+    color: white;
+}
+
+.inspect-rating {
+    font-size: 20px;
+    font-weight: bolder;
+    caret-color: gold;
+}
+
+.inspect-overview {
+    font-size: 18px;
+}

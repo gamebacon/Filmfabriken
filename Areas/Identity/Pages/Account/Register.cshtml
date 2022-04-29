@@ -13,19 +13,7 @@
         box-shadow: 0px 0px 15px darkgray;
         width: 60%;
     }
-    
-    label {
-        font-size: medium;
-        <!--text-transform: uppercase;-->
-    }
-    
-    input {
-        border: rgba(0, 0, 0, .4);
-        border-style: none none solid none;
-        background: none;
-        text-overflow: ellipsis;
-    }
-    
+
     .field {
         width: 90%;
     }
@@ -96,7 +84,7 @@
                     </div>
                 </div>
                 <div class="row py-1 px-3">
-                    <label>Kön</label>
+                    <label asp-for="Input.Gender"></label>
                     <br/>
                 </div>
                 <div class="row py-0 px-3">
@@ -136,13 +124,19 @@
                         <input class="field" asp-for="Input.ConfirmPassword" type="password"/>
                     </div>
                 </div>
+                <div class="row py-3 px-3">
+                    <input asp-for="Input.IsAdmin" type="checkbox"/>
+                    <label class="px-1" asp-for="Input.IsAdmin"></label>
+                </div>
             </div>
             <div class="row d">
                 <div class="col-6">
                     <button type="submit" class="btn btn-primary">Registrera</button>
                 </div>
                 <div class="col-6">
-                    <button type="button" asp-page="/" class="btn btn-secondary">Avbryt</button>
+                    <a href="/Identity/Account/login">
+                        <button type="button" asp-page="/" class="btn btn-secondary">Avbryt</button>
+                    </a>
                 </div>
             </div>
         </form>
