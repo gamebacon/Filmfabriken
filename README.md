@@ -1,6 +1,6 @@
 # Filmfabriken
 # This was my school project with ASP razor pages.
-## This project features a movie database interface, including a search feature and movie list creation & a sorting system.
+## This project features a movie database interface, including a user creation and loggin system, a movie search feature and movie list creation & a sorting system.
 
 ### Some preview images
 <div>
