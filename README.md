@@ -1,6 +1,6 @@
 # Filmfabriken
-# This was my school project with spring boot & mysql database
-## This project features an online casino including a user system, email confirmation, currency & 3 playable games.
+# This was my school project with ASP razor pages.
+## This project features a movie database interface, including a search feature and movie list creation & a sorting system.
 
 ### Some preview images
 <div>
