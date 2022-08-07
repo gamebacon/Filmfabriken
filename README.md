@@ -7,9 +7,11 @@
   <img src="images/home.png" width="90%"/>
   <br>  <br>  <br>
    <img src="images/search.png" width="90%"/>
+      <br>  <br>  <br>
    <img src="images/list.png" width="90%"/>
     <br>  <br>  <br>
    <img src="images/login.png" width="90%"/>
+      <br>  <br>  <br>
     <img src="images/create_list.png" width="90%"/>
 </div>
   
