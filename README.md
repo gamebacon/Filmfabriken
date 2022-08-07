@@ -6,9 +6,9 @@
 <div>
   <img src="images/home.png" width="90%"/>
   <br>
-   <img src="images/login.png" width="45%"/>
+   <img src="images/search.png" width="45%"/>
    <img src="images/list.png" width="45%"/>
     <br>
-   <img src="images/search.png" width="90%"/>
+   <img src="images/login.png" width="90%"/>
 </div>
   
