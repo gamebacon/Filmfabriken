@@ -7885,11 +7885,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\willi\\prylar\\code2\\c#\\razorpages\\FilmFabriken\\FilmFabriken.csproj",
+      "projectUniqueName": "C:\\Users\\willi\\prylar\\code2\\c#\\razorpages\\FilmFabriken\\Filmfabriken\\FilmFabriken.csproj",
       "projectName": "FilmFabriken",
-      "projectPath": "C:\\Users\\willi\\prylar\\code2\\c#\\razorpages\\FilmFabriken\\FilmFabriken.csproj",
+      "projectPath": "C:\\Users\\willi\\prylar\\code2\\c#\\razorpages\\FilmFabriken\\Filmfabriken\\FilmFabriken.csproj",
       "packagesPath": "C:\\Users\\willi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\willi\\prylar\\code2\\c#\\razorpages\\FilmFabriken\\obj\\",
+      "outputPath": "C:\\Users\\willi\\prylar\\code2\\c#\\razorpages\\FilmFabriken\\Filmfabriken\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\willi\\AppData\\Roaming\\NuGet\\NuGet.Config",

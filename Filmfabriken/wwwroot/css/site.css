@@ -51,6 +51,38 @@ button.accept-policy {
   line-height: inherit;
 }
 
+.index-back {
+  /*
+  background-image: url('../images/movie.jpg');
+  background-repeat: no-repeat;
+   */
+
+
+  margin: auto;
+}
+#home-p-wrapper {
+  margin: auto;
+  max-width: 95%;
+}
+
+#home-p {
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  height: 100%;
+  width: 100%;
+  /*
+  height: 600px;
+  width: 1400px;
+  
+   */
+}
+.main-container {
+  margin: auto;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {

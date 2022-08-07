@@ -14,6 +14,7 @@ const SEARCH_URL = BASE_URL + "/search/movie?api_key=" + API_KEY;
 
 
 
+
 const main = document.getElementById('main');
 
 const search_button = document.getElementById('search-button');
@@ -23,24 +24,43 @@ const list_search = document.getElementById('movie-list-search')
 const list_search_parent = document.getElementById('movie-list-search-parent')
 const home = document.getElementById('home-p')
 
+
+
 if(home) {
+    testA();
+}
+
+
+
+function testA() {
     home.innerHTML = '';
 
-    fetch(API_URL).then(res => res.json()).then(data => {
-        data.results.forEach( movie => {
+
+    getResults().then(movies => {
+        movies.forEach(movie => {
+            
             const {id, title, poster_path, vote_average, overview} = movie;
+            
+            const image_path = IMG_URL + poster_path;
+            
             const element = document.createElement("div");
             element.id = id;
             element.classList.add("home-item")
-            element.innerHTML = `
-                        <div class="">
-                            <img class="home-poster" src="${IMG_URL + poster_path}"/>
-                        </div>
-                    `;
+            element.innerHTML =
+
+                `
+                    <div class="">
+                        <a href="movies/moviedetails/?movie_id=${id}">
+                            <img class="home-poster" src="${image_path}"/>
+                        </a>
+                    </div>
+                `;
+            
             home.appendChild(element)
-        });
-    })
-    
+            
+        })
+    });
+
 }
 
 if(list_search) {
@@ -94,7 +114,9 @@ if(list_search) {
 
 
 if(main) {
+    
     getMovies(API_URL);
+    
     search_button.addEventListener("click", e => {
 
         e.preventDefault();
@@ -108,16 +130,16 @@ if(main) {
 }
 
 
-function getMovies(url) {
-    
-    console.log("Fetching: " + url)
+    function getMovies(url) {
+        console.log("Fetching: " + url)
         fetch(url).then(res => res.json()).then(data => {
             showMovies(data.results)
         })
+        
     }
 
     function getRatingColor(rating) {
-        return rating > 7.5  ? "green" : rating > 4.5 ? "yellow" : "red";
+        return rating > 6  ? "green" : rating > 4.5 ? "yellow" : "red";
     }
     
     function searchMovies(search) {
@@ -137,21 +159,24 @@ function getMovies(url) {
             movie_layout =      
                 `
                 <div class="image-container">
+                
                     <a href="movies/moviedetails/?movie_id=${id}">
                         <img class="image" src=${IMG_URL + poster_path} alt="${title}">
-                        <div class="middle">
-                            <div class="text"></div>
-                        </div>
                     </a>
+                    
                 </div>
-                <div class="p-2 overview">
+                
+                <div class="overview">
                     <div class="movie-heading">
-                        <h3>${title}</h3>
-                        <span class="${getRatingColor(vote_average)} rating">${vote_average}</span>
+                        <span>${title}</span>
+                        <div>
+                            <span class="${getRatingColor(vote_average)} rating">${vote_average.toFixed(1)}</span>
+                        </div>
                     </div>
                     <hb/>
-                    <span class="font-weight-light">${overview}</span>
+                    <span class="">${overview}</span>
                 </div>
+                
                 `;
             
             
