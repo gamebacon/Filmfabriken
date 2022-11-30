@@ -1,5 +1,5 @@
 # Filmfabriken
-## This was my school project with ASP razor pages
+
 
 ### This project features a movie database interface, including a user creation and login system, a movie search feature and movie list creation & a sorting system.
 ### yes it could use some polish on the frontend
